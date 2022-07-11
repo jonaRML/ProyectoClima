@@ -1,0 +1,43 @@
+.card{
+    width: 300px;
+    height: 200px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(36, 41, 47);
+    color: white;
+    transition: 0.3s;
+}
+.card:hover{
+    transform: scale(1.05);
+    box-shadow: 5px 5px 15px rgb(40, 131, 116);
+}
+
+.head{
+    display: flex;
+    flex-direction: column;
+}
+.titulo{
+   text-align: center;
+}
+
+
+
+.boton{
+    align-self: flex-end;
+    margin: 5px;
+    font-weight: 700;
+    border: none;
+    background-color: rgb(59, 168, 242);
+    color: aliceblue;
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+}
+.boton:hover{
+  background-color:  rgb(24, 104, 158);;
+}
+.temp{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
