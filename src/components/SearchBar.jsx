@@ -5,13 +5,19 @@ export default function SearchBar(props) {
   const [city,setCity] = useState('');
 
   const handleChange =(e)=>{
+
     setCity(e.target.value)
   }
-
+  
+  const handlerSubmit = (e)=>{
+    e.preventDefault();
+    props.onSearch(city); 
+    setCity("")
+  }  
   return (
-    <div className={s.contenedor}>
-      <input className={s.input} type="text" placeholder='cuidad...' onChange={handleChange}/>
-      <button className={s.boton} onClick={()=>props.onSearch(city)}>Search</button>
-    </div>
+    <form className={s.contenedor} onSubmit={handlerSubmit}>
+      <input className={s.input} type="search" placeholder='city...' value={city} onChange={handleChange}/>
+      <input type='submit'className={s.boton} value='Search'/>
+    </form>
   )
 };

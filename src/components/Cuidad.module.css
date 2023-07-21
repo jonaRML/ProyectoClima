@@ -1,0 +1,23 @@
+div{
+    color:white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 10, 0.5);
+}
+.ciudad{
+    height: 93vh;
+    background: url('../fondo.jpg') no-repeat fixed center;
+    background-color: rgba(0,0,0, 0.5);
+    background-size: cover;
+    
+}
+
+.texto{
+    font-weight: 700;
+    padding-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.flex{
+    display: flex;
+    margin-left:  50px;
+    gap: 100px;
+}

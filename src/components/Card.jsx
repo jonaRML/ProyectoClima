@@ -1,5 +1,9 @@
 import React from 'react';
 import s from './Card.module.css';
+import {Link} from 'react-router-dom';
+
+
+
 export default function Card(props) {
   // acá va tu código
   let img = props.img;
@@ -9,7 +13,10 @@ export default function Card(props) {
   <div className={s.card}>
   <div className={s.head}>
     <button className={s.boton} onClick={()=> props.onClose(id)}>x</button>
-    <h2 className={s.titulo}>{props.name}</h2>
+    <Link to={`/ciudad/${id}`}>
+      <h2 className={s.titulo}>{props.name}</h2>
+    </Link>
+    
   </div>
   
   <div className={s.temp}>

@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import Cards from './components/Cards.jsx';
 import data from './data.js';
 import Nav from './components/Nav.jsx';
-
+import About from './components/About.jsx';
+import Ciudad from './components/Cuidad.jsx'
+import {Routes, Route }from 'react-router-dom';
+import Swal from 'sweetalert2';
 function App() {
   const [cities, setCities] = useState(data);
+
   function onClose(id) {
     setCities(cities.filter(c => c.id !== id));
   }
@@ -17,25 +21,45 @@ function App() {
       .then(r => r.json())
       .then((recurso) => {
         if(recurso.main !== undefined){
-          setCities(oldCities => [...oldCities, recurso]);
+          setCities(oldCities => {
+            if(oldCities.find(el=> el.id === recurso.id)){
+              Swal.fire(
+                'city exits already',
+                'try again'
+              )
+              return oldCities;
+            }else{
+             return [...oldCities, recurso]
+            }
+            
+          });
         } else {
-          alert("cuidad no encontrada");
+          Swal.fire(
+            {
+              icon: 'error',
+              title: 'City not found',
+              text: 'try with another city',
+            }
+          )
         }
       });
   }
+
   return (
     <div>
+
       <Nav onSearch={onSearch}/>
-      <div>
-        <Cards
-          cities={cities}
-          onClose={onClose}
-        />
-      </div>
-      <hr />
-      <div>
+
+      <Routes>
+        <Route path='/' element={<Cards cities={cities}onClose={onClose}/>} />
         
-      </div>
+        <Route path='about' element={<About/>}  />
+     
+        <Route
+        path="ciudad/:ciudadId"
+        element={<Ciudad city={cities}/>}
+        />
+      </Routes>
     </div>
   );
 }
