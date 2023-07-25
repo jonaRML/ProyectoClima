@@ -8,7 +8,7 @@ export default function Card(props) {
   // acá va tu código
   let img = props.img;
   let id =props.id;
-  let url =`http://openweathermap.org/img/wn/${img}@2x.png`
+  let url =`https://openweathermap.org/img/wn/${img}@2x.png`
   return (
   <div className={s.card}>
   <div className={s.head}>
