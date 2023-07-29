@@ -25,11 +25,12 @@
     background-color: rgb(63, 71, 82);
     color: rgb(3, 190, 159);
     margin-left: 5px;
+    margin-right: 5px;
     border-radius: 4px;
     border: 2px solid rgb(40, 131, 116);
 }
 .boton:hover{
     color: rgb(60, 255, 223);
-    border: 2px soli rgb(11, 148, 125);
+    border: 2px solid rgb(11, 148, 125);
 
 }
